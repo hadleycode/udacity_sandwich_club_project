@@ -23,7 +23,7 @@ public class JsonUtils {
     private static final String IMAGE = "image";
 
     public static Sandwich parseSandwichJson(String json) {
-        Log.d("JSON", json);
+
         JSONObject jsonObject;
         JSONObject nameJsonObject;
         String mainName;
@@ -43,8 +43,8 @@ public class JsonUtils {
 
             placeOfOrigin = jsonObject.getString(PLACE_OF_ORIGIN);
             description = jsonObject.getString(DESCRIPTION);
+
             image = jsonObject.getString(IMAGE);
-            Log.d("JSON", mainName + placeOfOrigin + description + image);
 
             // Use JSONArray
             JSONArray alsoKnownAsArray = nameJsonObject.getJSONArray(ALSO_KNOWN_AS);
@@ -55,7 +55,7 @@ public class JsonUtils {
                 i++;
             }
 
-            // Use JSONArray for list of ingredientsgit sta
+            // Use JSONArray for list of ingredients
             JSONArray ingredientsArray = jsonObject.getJSONArray(INGREDIENTS);
             int j = 0;
             while (j < ingredientsArray.length()) {
