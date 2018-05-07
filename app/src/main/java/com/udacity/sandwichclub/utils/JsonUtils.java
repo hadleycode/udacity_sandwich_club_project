@@ -39,18 +39,18 @@ public class JsonUtils {
             jsonObject = new JSONObject(json);
 
             nameJsonObject = jsonObject.getJSONObject(NAME);
-            mainName = nameJsonObject.getString(MAIN_NAME);
+            mainName = nameJsonObject.optString(MAIN_NAME);
 
-            placeOfOrigin = jsonObject.getString(PLACE_OF_ORIGIN);
-            description = jsonObject.getString(DESCRIPTION);
+            placeOfOrigin = jsonObject.optString(PLACE_OF_ORIGIN);
+            description = jsonObject.optString(DESCRIPTION);
 
-            image = jsonObject.getString(IMAGE);
+            image = jsonObject.optString(IMAGE);
 
             // Use JSONArray
             JSONArray alsoKnownAsArray = nameJsonObject.getJSONArray(ALSO_KNOWN_AS);
             int i = 0;
             while (i < alsoKnownAsArray.length()) {
-                String alsoKnownAsString = alsoKnownAsArray.getString(i);
+                String alsoKnownAsString = alsoKnownAsArray.optString(i);
                 alsoKnownAs.add(alsoKnownAsString);
                 i++;
             }
@@ -59,7 +59,7 @@ public class JsonUtils {
             JSONArray ingredientsArray = jsonObject.getJSONArray(INGREDIENTS);
             int j = 0;
             while (j < ingredientsArray.length()) {
-                String ingredientsString = ingredientsArray.getString(j);
+                String ingredientsString = ingredientsArray.optString(j);
                 ingredients.add(ingredientsString);
                 j++;
             }
