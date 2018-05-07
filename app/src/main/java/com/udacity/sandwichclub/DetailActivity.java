@@ -74,6 +74,8 @@ public class DetailActivity extends AppCompatActivity {
 
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_foreground)
                 .into(ingredientsIv);
 
         if (sandwich.getPlaceOfOrigin().isEmpty())
